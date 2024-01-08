@@ -1,0 +1,18 @@
+name: Login user
+
+trigger:
+  type: api
+
+actions:
+  # Create a presentation request and render the invitationUrl in your client
+  - id: createPresentationRequestInvitation
+    name: didcomm/createPresentationRequestInvitation@v1
+    attributes:
+      anoncreds:
+        name: Login request
+        version: '1.0'
+        attributes:
+          - names:
+              - email
+            restrictions:
+              - credentialDefinitionId: <YOUR_CREDENTIAL_DEFINITION_ID>

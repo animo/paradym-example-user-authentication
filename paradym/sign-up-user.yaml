@@ -1,0 +1,35 @@
+name: Sign up new user
+
+trigger:
+  type: api
+
+# Define the input values required for your workflow
+input:
+  type: object
+  properties:
+    name:
+      description: Name of the user
+      type: string
+    email:
+      description: Email of the user
+      type: string
+  required:
+    - name
+    - email
+
+actions:
+  # Setup the connection by showing the invitationUrl as a QR code in your client
+  - id: createConnection
+    name: didcomm/createConnection@v1
+
+  # Issue the credential using the connection from the previous action
+  # and the values from the workflow input
+  - id: issueCredential
+    name: didcomm/issueCredential@v1
+    attributes:
+      connectionId: $.actions.createConnection.output.connection.connectionId
+      anoncreds:
+        credentialDefinitionId: <CREDENTIAL_DEFINITION_ID>
+        attributes:
+          name: $.input.name
+          email: $.input.email
