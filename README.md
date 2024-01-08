@@ -56,9 +56,9 @@ You can generate your API key in the settings tab on the Paradym dashboard as de
 
 Navigate to the `nuxt.config.ts` and replace the values in the `runtimeConfig` with the values you have just created:
 
-- PARADYM_API_KEY: The API key you created in the Paradym dashboard.
-- SIGN_UP_WORKFLOW_ID: The ID of the sign up workflow.
-- LOGIN_WORKFLOW_ID: The ID of the login workflow.
+- `PARADYM_API_KEY`: The API key you created in the Paradym dashboard.
+- `SIGN_UP_WORKFLOW_ID`: The ID of the sign up workflow.
+- `LOGIN_WORKFLOW_ID`: The ID of the login workflow.
 
 ## Running the demo
 
@@ -69,7 +69,7 @@ Make sure to install the dependencies:
 bun install
 ```
 
-Database
+Initiate the data storage
 
 ```bash
 npm exec drizzle-kit push:sqlite
