@@ -21,22 +21,21 @@ First, we need to register the credential template. In this template, we define 
 
 - Create a new workflow in Paradym and navigate to the Templates tab.
 - Look for the 'Register Credential Template' workflow, and click on 'use template'.
-- Publish the workflow
-- Run the workflow with the following attributes:
-  - Name: Bank account credential
-  - Version: 1.0
-  - attributes: Name, Email (**Capitalize the first character!**)
-- Execute the workflow via the executions tab.
-- Click on the execution to view the result of your workflow.
-- Copy the `credentialDefinitionId` from the result and save the value for later.
+- Publish and run the workflow with the following attributes:
+  - Name: `Bank account credential`
+  - Version: `1.0`
+  - Attributes: (**Make sure to capitalize the first character!**)
+    - `Name`
+    - `Email`
+- Open the result of the `createCredentialDefinition` action and copy the `credentialDefinitionId`. Save the value for later.
 
 **User sign-up workflow**
 
-Now that we have the required credential definition Id, we can setup the sign-up workflow.
+Now that we have the required credential definition Id, we can set up the sign-up workflow.
 
 - Start on the Paradym dashboard and create a new workflow.
-- Copy the contents from the `sign-up-user.yaml` file from the `paradym` directory.
-- Replace the `<YOUR_CREDENTIAL_DEFINITION_ID>` value with the `credentialDefinitionId` value from the previous step.
+- Copy the contents from the `sign-up-user.yaml` file from the [paradym directory](/paradym).
+- Replace the `<YOUR_CREDENTIAL_DEFINITION_ID>` value with the `credentialDefinitionId` value from the first workflow.
 - Publish the workflow.
 
 **User login workflow**
@@ -44,21 +43,27 @@ Now that we have the required credential definition Id, we can setup the sign-up
 Great, we now have a way to sign up new users. The last workflow will handle the login requests for existing users.
 
 - Start on the Paradym dashboard and create a new workflow.
-- Copy the contents from the `login-user.yaml` file from the `paradym` directory.
-- Replace the `<YOUR_CREDENTIAL_DEFINITION_ID>` value with the `credentialDefinitionId` value from the previous step.
+- Copy the contents from the `login-user.yaml` file from the [paradym directory](/paradym).
+- Replace the `<YOUR_CREDENTIAL_DEFINITION_ID>` value with the `credentialDefinitionId` value from the first workflow.
 - Publish the workflow.
 
 #### Step 3: Create your Paradym API Key
 
-You can generate your API key in the settings tab on the Paradym dashboard as described in [here](https://docs.paradym.id/executing-a-workflow/api-execution#api-key).
+You can generate your API key in the settings tab on the Paradym dashboard as described [here](https://docs.paradym.id/executing-a-workflow/api-execution#api-key).
 
 #### Step 4: Set the environment variables
 
-Navigate to the `nuxt.config.ts` and replace the values in the `runtimeConfig` with the values you have just created:
+The environment variables consist of your Paradym API Key, and the ID's of the workflows just created. Once you have created the workflows in the Paradym dashboard, you can copy the workflow ID's from Paradym and set them as environment variables.
 
-- `PARADYM_API_KEY`: The API key you created in the Paradym dashboard.
-- `SIGN_UP_WORKFLOW_ID`: The ID of the sign up workflow.
-- `LOGIN_WORKFLOW_ID`: The ID of the login workflow.
+```bash
+cp .env.example .env
+```
+
+| Variable              | Description                                                                                                                                                                                                                   |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PARADYM_API_KEY`     | This is the API key used to send request to Paradym. You can generate your API key in the settings tab on the Paradym dashboard as described in [here](https://docs.paradym.id/executing-a-workflow/api-execution#api-key).   |
+| `SIGN_UP_WORKFLOW_ID` | This is the ID of the issue course credential workflow. Once you have created the workflow in Paradym you can copy the ID from the [executions tab](https://docs.paradym.id/executing-a-workflow/api-execution#workflow-id).  |
+| `LOGIN_WORKFLOW_ID`   | This is the ID of the verify course credential workflow. Once you have created the workflow in Paradym you can copy the ID from the [executions tab](https://docs.paradym.id/executing-a-workflow/api-execution#workflow-id). |
 
 ## Running the demo
 
