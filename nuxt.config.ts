@@ -12,13 +12,11 @@ export default defineNuxtConfig({
     '@nuxt/ui',
   ],
   runtimeConfig: {
-    // TODO: Add your Paradym API key here: https://docs.paradym.id/executing-a-workflow/api-execution#api-key
-    PARADYM_API_KEY: '',
+    PARADYM_API_KEY: process.env.PARADYM_API_KEY,
     public: {
       PARADYM_URL: 'https://api.paradym.id/v1',
-      // TODO: Add the respective workflow ID's below
-      LOGIN_WORKFLOW_ID: '',
-      SIGN_UP_WORKFLOW_ID: '',
+      LOGIN_WORKFLOW_ID: process.env.LOGIN_WORKFLOW_ID,
+      SIGN_UP_WORKFLOW_ID: process.env.SIGN_UP_WORKFLOW_ID,
     },
   },
   devtools: { enabled: true },
