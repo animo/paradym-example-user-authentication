@@ -5,7 +5,7 @@
 <img src="/assets/app-screenshot.png" alt=" Demo of the application that shows a QR code to login using a credential." width="960" />
 </p>
 
-> Check out the [YouTube video](#) for a complete walkthrough of the demo application and its workflows.
+> Check out the [YouTube video](https://www.youtube.com/watch?v=Hk7uXjI5yLg) for a complete walkthrough of the demo application and its workflows.
 
 This demo uses [Paradym](https://paradym.id), a workflow builder for developers that provides the infrastructure you need to use verifiable credentials in your solution. If you don't have an account yet, you can start with our [quick start guide](https://docs.paradym.id/).
 
