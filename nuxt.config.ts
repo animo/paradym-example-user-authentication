@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     PARADYM_API_KEY: process.env.PARADYM_API_KEY,
     public: {
-      PARADYM_URL: 'https://api.paradym.id/v1',
+      PARADYM_URL: `https://api.paradym.id/v1/projects/${process.env.PARADYM_PROJECT_ID}`,
       LOGIN_WORKFLOW_ID: process.env.LOGIN_WORKFLOW_ID,
       SIGN_UP_WORKFLOW_ID: process.env.SIGN_UP_WORKFLOW_ID,
     },
