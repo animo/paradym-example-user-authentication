@@ -36,7 +36,7 @@ const fetchStatus = async () => {
 
     const userResponse = await $fetch(`/api/users/${email}`)
 
-    if(!user || !user.value) {
+    if(!userResponse || !userResponse.user) {
       toast.add({ title: "User could not be found. Please create a new account."})
       await navigateTo('/sign-up')
       clearInterval(intervalId.value)
