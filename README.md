@@ -47,11 +47,15 @@ Great, we now have a way to sign up new users. The last workflow will handle the
 - Replace the `<YOUR_CREDENTIAL_DEFINITION_ID>` value with the `credentialDefinitionId` value from the first workflow.
 - Publish the workflow.
 
-#### Step 3: Create your Paradym API Key
+#### Step 3: Set your Paradym Project ID
+
+You can find your Paradym Project ID in the settings tab on the Paradym dashboard as described [here](https://docs.paradym.id/executing-a-workflow/api-execution#project-id).
+
+#### Step 4: Create your Paradym API Key
 
 You can generate your API key in the settings tab on the Paradym dashboard as described [here](https://docs.paradym.id/executing-a-workflow/api-execution#api-key).
 
-#### Step 4: Set the environment variables
+#### Step 5: Set the environment variables
 
 The environment variables consist of your Paradym API Key, Paradym project ID, and the ID's of the workflows just created. Once you have created the workflows in the Paradym dashboard, you can copy the workflow ID's from Paradym and set them as environment variables.
 
